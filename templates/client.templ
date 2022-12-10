@@ -61,11 +61,11 @@ func NewClient (tlsConfig *tls.Config, logger *zerolog.Logger) (*Client, error) 
     return c, nil
 }
 
-func (c *Client) Connect(addr string, streamHandler ...frisbee.NewStreamHandler) error {
+func (c *Client) Connect(addr string) error {
     return c.Client.Connect(addr, func (stream *frisbee.Stream) { })
 }
 
-func (c *Client) FromConn(conn net.Conn, streamHandler ...frisbee.NewStreamHandler) error {
+func (c *Client) FromConn(conn net.Conn) error {
     return c.Client.FromConn(conn, func (stream *frisbee.Stream) { })
 }
 
